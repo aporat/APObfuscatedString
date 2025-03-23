@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     name: ${{ matrix.platform }} on ${{ matrix.os }}
-    runs-on: macos-15
+    runs-on: macos-latest
     env:
       scheme: APObfuscatedString
     strategy:
@@ -17,7 +17,7 @@ jobs:
       matrix:
         include:
           - platform: iPhone 16 Pro
-            os: 18.2
+            os: 18.3.1
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,7 +29,6 @@ jobs:
           xcodebuild test \
             -scheme $scheme \
             -destination 'platform=iOS Simulator,name=${{ matrix.platform }},OS=${{ matrix.os }}'
-            -enableCodeCoverage YES
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
