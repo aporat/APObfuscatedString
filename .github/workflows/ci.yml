@@ -1,4 +1,4 @@
-name: Build
+name: CI
 
 on:
   push:
@@ -11,7 +11,7 @@ jobs:
     name: ${{ matrix.platform }} on ${{ matrix.os }}
     runs-on: macos-15
     env:
-      scheme: APObfuscatedString
+      scheme: APObfuscatedStringTests
     strategy:
       fail-fast: false
       matrix:
@@ -24,8 +24,14 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Run Build on ${{ matrix.platform }} (iOS ${{ matrix.os }})
+      - name: Run test on ${{ matrix.platform }} (iOS ${{ matrix.os }})
         run: |
-          xcodebuild build \
+          xcodebuild test \
             -scheme $scheme \
             -destination 'platform=iOS Simulator,name=${{ matrix.platform }},OS=${{ matrix.os }}'
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: aporat/APObfuscatedString
