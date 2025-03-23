@@ -41,7 +41,7 @@ jobs:
       - name: Generate Code Coverage
         run: |
           xcrun llvm-cov export \
-            .build/debug/${{ scheme }}PackageTests.xctest/Contents/MacOS/${{ scheme }}PackageTests \
+            .build/debug/APObfuscatedStringPackageTests.xctest/Contents/MacOS/APObfuscatedStringPackageTests \
             -instr-profile .build/debug/codecov/default.profdata \
             --format="lcov" \
             --ignore-filename-regex "\\.build" \
@@ -51,7 +51,7 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: aporat/${{ scheme }}
+          slug: aporat/APObfuscatedString
 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
