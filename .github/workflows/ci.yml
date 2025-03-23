@@ -10,6 +10,10 @@ jobs:
   build:
     name: ${{ matrix.platform }} on ${{ matrix.os }}
     runs-on: macos-latest
+     steps:
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
     env:
       scheme: APObfuscatedString
     strategy:
