@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		77A7E9652D905AEC00FD628D /* APObfuscatedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A7E9622D905AEC00FD628D /* APObfuscatedString.h */; };
 		77A7E9662D905AEC00FD628D /* UAObfuscatedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A7E9632D905AEC00FD628D /* UAObfuscatedString.swift */; };
-		77A7E9692D905AF300FD628D /* APObfuscatedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A7E9672D905AF300FD628D /* APObfuscatedStringTests.swift */; };
+		77C763BA2D90839A00064CC3 /* APObfuscatedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C763B82D90839A00064CC3 /* APObfuscatedStringTests.swift */; };
 		77F03C482D8F43140037450C /* APObfuscatedString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F03C3F2D8F43140037450C /* APObfuscatedString.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +27,7 @@
 		77A7E9612D90598800FD628D /* APObfuscatedString.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = APObfuscatedString.xctestplan; sourceTree = "<group>"; };
 		77A7E9622D905AEC00FD628D /* APObfuscatedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APObfuscatedString.h; sourceTree = "<group>"; };
 		77A7E9632D905AEC00FD628D /* UAObfuscatedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UAObfuscatedString.swift; sourceTree = "<group>"; };
-		77A7E9672D905AF300FD628D /* APObfuscatedStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APObfuscatedStringTests.swift; sourceTree = "<group>"; };
+		77C763B82D90839A00064CC3 /* APObfuscatedStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APObfuscatedStringTests.swift; sourceTree = "<group>"; };
 		77F03C3F2D8F43140037450C /* APObfuscatedString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APObfuscatedString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F03C472D8F43140037450C /* APObfuscatedStringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APObfuscatedStringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -54,17 +54,16 @@
 		77A7E9642D905AEC00FD628D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				77A7E9682D905AF300FD628D /* Tests */,
 				77A7E9622D905AEC00FD628D /* APObfuscatedString.h */,
 				77A7E9632D905AEC00FD628D /* UAObfuscatedString.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		77A7E9682D905AF300FD628D /* Tests */ = {
+		77C763B92D90839A00064CC3 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				77A7E9672D905AF300FD628D /* APObfuscatedStringTests.swift */,
+				77C763B82D90839A00064CC3 /* APObfuscatedStringTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -74,6 +73,7 @@
 			children = (
 				77A7E9612D90598800FD628D /* APObfuscatedString.xctestplan */,
 				77A7E9642D905AEC00FD628D /* Sources */,
+				77C763B92D90839A00064CC3 /* Tests */,
 				77F03C402D8F43140037450C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -210,7 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77A7E9692D905AF300FD628D /* APObfuscatedStringTests.swift in Sources */,
+				77C763BA2D90839A00064CC3 /* APObfuscatedStringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
