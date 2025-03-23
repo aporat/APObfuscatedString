@@ -21,6 +21,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		77A7E9612D90598800FD628D /* APObfuscatedString.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = APObfuscatedString.xctestplan; sourceTree = "<group>"; };
 		77F03C3F2D8F43140037450C /* APObfuscatedString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APObfuscatedString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F03C472D8F43140037450C /* APObfuscatedStringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APObfuscatedStringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -73,6 +74,7 @@
 		77F03C352D8F43130037450C = {
 			isa = PBXGroup;
 			children = (
+				77A7E9612D90598800FD628D /* APObfuscatedString.xctestplan */,
 				77F03C412D8F43140037450C /* APObfuscatedString */,
 				77F03C4B2D8F43140037450C /* APObfuscatedStringTests */,
 				77F03C402D8F43140037450C /* Products */,

@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "680863AA-759C-4566-8A6F-8C4719A13F48",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:APObfuscatedString.xcodeproj",
+        "identifier" : "77F03C462D8F43140037450C",
+        "name" : "APObfuscatedStringTests"
+      }
+    }
+  ],
+  "version" : 1
+}
