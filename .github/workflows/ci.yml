@@ -34,6 +34,11 @@ jobs:
             -scheme $scheme \
             -destination 'platform=iOS Simulator,name=${{ matrix.platform }},OS=${{ matrix.os }}'
 
+      - name: Build
+        run: swift build -v
+      - name: Run tests
+        run: swift test -v --enable-code-coverage
+        
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:

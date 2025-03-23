@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77A7E9652D905AEC00FD628D /* APObfuscatedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 77A7E9622D905AEC00FD628D /* APObfuscatedString.h */; };
+		77A7E9662D905AEC00FD628D /* UAObfuscatedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A7E9632D905AEC00FD628D /* UAObfuscatedString.swift */; };
+		77A7E9692D905AF300FD628D /* APObfuscatedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A7E9672D905AF300FD628D /* APObfuscatedStringTests.swift */; };
 		77F03C482D8F43140037450C /* APObfuscatedString.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F03C3F2D8F43140037450C /* APObfuscatedString.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,35 +25,12 @@
 
 /* Begin PBXFileReference section */
 		77A7E9612D90598800FD628D /* APObfuscatedString.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = APObfuscatedString.xctestplan; sourceTree = "<group>"; };
+		77A7E9622D905AEC00FD628D /* APObfuscatedString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APObfuscatedString.h; sourceTree = "<group>"; };
+		77A7E9632D905AEC00FD628D /* UAObfuscatedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UAObfuscatedString.swift; sourceTree = "<group>"; };
+		77A7E9672D905AF300FD628D /* APObfuscatedStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APObfuscatedStringTests.swift; sourceTree = "<group>"; };
 		77F03C3F2D8F43140037450C /* APObfuscatedString.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APObfuscatedString.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F03C472D8F43140037450C /* APObfuscatedStringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APObfuscatedStringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		77F03C4F2D8F43140037450C /* Exceptions for "APObfuscatedString" folder in "APObfuscatedString" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			publicHeaders = (
-				APObfuscatedString.h,
-			);
-			target = 77F03C3E2D8F43140037450C /* APObfuscatedString */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		77F03C412D8F43140037450C /* APObfuscatedString */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				77F03C4F2D8F43140037450C /* Exceptions for "APObfuscatedString" folder in "APObfuscatedString" target */,
-			);
-			path = APObfuscatedString;
-			sourceTree = "<group>";
-		};
-		77F03C4B2D8F43140037450C /* APObfuscatedStringTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = APObfuscatedStringTests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		77F03C3C2D8F43140037450C /* Frameworks */ = {
@@ -71,12 +51,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77A7E9642D905AEC00FD628D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				77A7E9682D905AF300FD628D /* Tests */,
+				77A7E9622D905AEC00FD628D /* APObfuscatedString.h */,
+				77A7E9632D905AEC00FD628D /* UAObfuscatedString.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		77A7E9682D905AF300FD628D /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				77A7E9672D905AF300FD628D /* APObfuscatedStringTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		77F03C352D8F43130037450C = {
 			isa = PBXGroup;
 			children = (
 				77A7E9612D90598800FD628D /* APObfuscatedString.xctestplan */,
-				77F03C412D8F43140037450C /* APObfuscatedString */,
-				77F03C4B2D8F43140037450C /* APObfuscatedStringTests */,
+				77A7E9642D905AEC00FD628D /* Sources */,
 				77F03C402D8F43140037450C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -97,6 +94,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A7E9652D905AEC00FD628D /* APObfuscatedString.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,9 +113,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				77F03C412D8F43140037450C /* APObfuscatedString */,
 			);
 			name = APObfuscatedString;
 			packageProductDependencies = (
@@ -138,9 +133,6 @@
 			);
 			dependencies = (
 				77F03C4A2D8F43140037450C /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				77F03C4B2D8F43140037450C /* APObfuscatedStringTests */,
 			);
 			name = APObfuscatedStringTests;
 			packageProductDependencies = (
@@ -210,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A7E9662D905AEC00FD628D /* UAObfuscatedString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A7E9692D905AF300FD628D /* APObfuscatedStringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
