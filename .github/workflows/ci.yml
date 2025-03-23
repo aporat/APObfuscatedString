@@ -10,10 +10,6 @@ jobs:
   build:
     name: ${{ matrix.platform }} on ${{ matrix.os }}
     runs-on: macos-latest
-     steps:
-      - uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: latest-stable
     env:
       scheme: APObfuscatedString
     strategy:
@@ -23,6 +19,10 @@ jobs:
           - platform: iPhone 16 Pro
             os: 18.3.1
     steps:
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
