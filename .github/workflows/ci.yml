@@ -62,3 +62,5 @@ jobs:
         uses: codecov/test-results-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          slug: aporat/APObfuscatedString
+          files: ./coverage/cobertura.xml
