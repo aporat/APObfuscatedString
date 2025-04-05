@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1620"
+   LastUpgradeVersion = "1630"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "77F03C3E2D8F43140037450C"
+               BlueprintIdentifier = "537EDD0324F49F1E003DC54A"
                BuildableName = "APObfuscatedString.framework"
                BlueprintName = "APObfuscatedString"
                ReferencedContainer = "container:APObfuscatedString.xcodeproj">
@@ -27,20 +27,14 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
-      <TestPlans>
-         <TestPlanReference
-            reference = "container:APObfuscatedString.xctestplan"
-            default = "YES">
-         </TestPlanReference>
-      </TestPlans>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "77F03C462D8F43140037450C"
+               BlueprintIdentifier = "537EDD0C24F49F1E003DC54A"
                BuildableName = "APObfuscatedStringTests.xctest"
                BlueprintName = "APObfuscatedStringTests"
                ReferencedContainer = "container:APObfuscatedString.xcodeproj">
@@ -68,7 +62,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "77F03C3E2D8F43140037450C"
+            BlueprintIdentifier = "537EDD0324F49F1E003DC54A"
             BuildableName = "APObfuscatedString.framework"
             BlueprintName = "APObfuscatedString"
             ReferencedContainer = "container:APObfuscatedString.xcodeproj">
