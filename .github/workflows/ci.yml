@@ -49,7 +49,7 @@ jobs:
       - name: Generate Coverage Report
         run: |
           slather coverage \
-            --scheme APObfuscatedString \
+            --scheme $scheme \
             --output-directory ./coverage \
             --cobertura-xml \
             --build-directory ./DerivedData \
