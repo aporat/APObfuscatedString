@@ -55,6 +55,7 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           slug: aporat/APObfuscatedString
+          files: ./coverage/cobertura.xml
 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
