@@ -66,7 +66,7 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: aporat/APObfuscatedString
+          slug: ${{ github.repository }}
           files: ./coverage/cobertura.xml
 
       - name: Upload test results to Codecov
@@ -74,5 +74,5 @@ jobs:
         uses: codecov/test-results-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          slug: aporat/APObfuscatedString
+          slug: ${{ github.repository }}
           files: ./test-results.xml
