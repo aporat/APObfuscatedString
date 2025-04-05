@@ -34,7 +34,7 @@ jobs:
             -scheme $scheme \
             -destination 'platform=iOS Simulator,name=${{ matrix.platform }},OS=${{ matrix.os }}' \
             -enableCodeCoverage YES \
-            -derivedDataPath ./DerivedData
+            -derivedDataPath ./DerivedData \
             -resultBundlePath ./TestResults.xcresult
 
       # Install Slather to generate lcov-compatible coverage
