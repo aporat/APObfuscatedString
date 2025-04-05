@@ -47,7 +47,7 @@ jobs:
             --scheme APObfuscatedString \
             --output-directory ./coverage \
             --cobertura-xml \
-            --derived-data-path ./DerivedData \
+            --build-directory ./DerivedData \
             ./APObfuscatedString.xcodeproj
 
       - name: Upload coverage reports to Codecov
