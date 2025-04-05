@@ -34,18 +34,19 @@ jobs:
             -scheme $scheme \
             -destination 'platform=iOS Simulator,name=${{ matrix.platform }},OS=${{ matrix.os }}'
 
-      - name: Build
-        run: swift build -v
-      - name: Run tests
-        run: swift test -v --enable-code-coverage
-      - name: Generate Code Coverage
+      # Install Slather to generate lcov-compatible coverage
+      - name: Install Slather
+        run: gem install slather
+
+      # Generate lcov report using Slather
+      - name: Generate lcov Report
         run: |
-          xcrun llvm-cov export \
-            .build/debug/APObfuscatedStringPackageTests.xctest/Contents/MacOS/APObfuscatedStringPackageTests \
-            -instr-profile .build/debug/codecov/default.profdata \
-            --format="lcov" \
-            --ignore-filename-regex "\\.build" \
-            --ignore-filename-regex "Tests" > info.lcov
+          slather coverage \
+            --scheme APObfuscatedString \
+            --output-directory ./coverage \
+            --lcov \
+            --derived-data-path ./DerivedData \
+            ./APObfuscatedString.xcodeproj
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
