@@ -35,11 +35,16 @@ jobs:
             -destination 'platform=iOS Simulator,name=${{ matrix.platform }},OS=${{ matrix.os }}' \
             -enableCodeCoverage YES \
             -derivedDataPath ./DerivedData
+            -resultBundlePath ./TestResults.xcresult
 
       # Install Slather to generate lcov-compatible coverage
       - name: Install Slather
         run: gem install slather
-
+      
+      # Install xcresultparser
+      - name: Install xcresultparser
+        run: brew install xcresultparser
+        
       # Generate lcov report using Slather
       - name: Generate Coverage Report
         run: |
