@@ -41,12 +41,12 @@ jobs:
         run: gem install slather
 
       # Generate lcov report using Slather
-      - name: Generate lcov Report
+      - name: Generate Coverage Report
         run: |
           slather coverage \
             --scheme APObfuscatedString \
             --output-directory ./coverage \
-            --lcov \
+            --cobertura-xml \
             --derived-data-path ./DerivedData \
             ./APObfuscatedString.xcodeproj
 
