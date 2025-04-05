@@ -31,7 +31,7 @@ jobs:
       - name: Run test on ${{ matrix.platform }} (iOS ${{ matrix.os }})
         run: |
           xcodebuild test \
-            -scheme $scheme \
+            -scheme ${{ env.scheme }} \
             -destination 'platform=iOS Simulator,name=${{ matrix.platform }},OS=${{ matrix.os }}' \
             -enableCodeCoverage YES \
             -derivedDataPath ./DerivedData \
@@ -49,11 +49,11 @@ jobs:
       - name: Generate Coverage Report
         run: |
           slather coverage \
-            --scheme $scheme \
+            --scheme ${{ env.scheme }} \
             --output-directory ./coverage \
             --cobertura-xml \
             --build-directory ./DerivedData \
-            ./APObfuscatedString.xcodeproj
+            ./${{ env.scheme }}.xcodeproj
 
       # Convert .xcresult to JUnit XML for test results
       - name: Convert Test Results to JUnit
