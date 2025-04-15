@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "APObfuscatedString",
     platforms: [
-        .macOS(.v14),
+        .macOS(.v13),
         .iOS(.v15),
         .tvOS(.v13),
         .watchOS(.v6)
