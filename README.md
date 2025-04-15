@@ -2,11 +2,10 @@
 
 A Swift package that extends `String` and `NSMutableString` with fluent, chainable properties to append lowercase letters (a-z), uppercase letters (A-Z), and numbers (0-9). This library simplifies string construction in a readable, expressive way, useful for tasks like obfuscation, shorthand notation, or dynamic string generation.
 
-[![Swift](https://img.shields.io/badge/Swift-5.9_5.10_6.0-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.9_5.10_6.0-Orange?style=flat-square)
-[![Platforms](https://img.shields.io/badge/Platforms-macOS_iOS_tvOS_watchOS_visionOS_-yellowgreen?style=flat-square)](https://img.shields.io/badge/Platforms-macOS_iOS_tvOS_watchOS_vision_OS?style=flat-square)
-[![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/aporat/APObfuscatedString/ci.yml?style=flat-square)
-[![Codecov](https://img.shields.io/codecov/c/github/aporat/APObfuscatedString?style=flat-square)](https://codecov.io/github/aporat/APObfuscatedString)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Faporat%2FAPObfuscatedString%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/aporat/APObfuscatedString)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Faporat%2FAPObfuscatedString%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/aporat/APObfuscatedString)
+![GitHub Actions Workflow Status](https://github.com/aporat/APObfuscatedString/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/github/aporat/APObfuscatedString/graph/badge.svg?token=OHF9AE0KMC)](https://codecov.io/github/aporat/APObfuscatedString)
 
 ## Features
 - **Immutable String Support**: Append characters to `String` and get a new string back.
