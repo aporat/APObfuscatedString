@@ -21,11 +21,11 @@ jobs:
             device: Apple TV
             os: "18.5"
           - platform: watchOS Simulator
-            device: Apple Watch Series 10 (46mm)
+            device: Any watchOS Device
             os: "11.5"
           - platform: macOS
             device: Mac
-            os: "15.4"
+            os: "15.6"
 
     steps:
       - name: Checkout Repository
