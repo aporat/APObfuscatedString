@@ -21,7 +21,7 @@ jobs:
             device: Apple TV
             os: "18.5"
           - platform: watchOS Simulator
-            device: Any watchOS Device
+            device: Apple Watch Ultra 2 (49mm)
             os: "11.5"
           - platform: macOS
             device: Mac
