@@ -6,8 +6,8 @@ import PackageDescription
 let package = Package(
     name: "APObfuscatedString",
     platforms: [
-        .macOS(.v13),
         .iOS(.v15),
+        .macOS(.v13),
         .tvOS(.v13),
         .watchOS(.v6)
     ],
@@ -20,12 +20,13 @@ let package = Package(
     dependencies: [],
     targets: [
         .target(
-            name: "APObfuscatedString"
+            name: "APObfuscatedString",
+            path: "Sources"
         ),
         .testTarget(
             name: "APObfuscatedStringTests",
-            dependencies: ["APObfuscatedString"]
+            dependencies: ["APObfuscatedString"],
+            path: "Tests"
         )
-    ],
-    swiftLanguageVersions: [.v5]
+    ]
 )
