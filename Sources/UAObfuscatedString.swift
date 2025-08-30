@@ -1,146 +1,163 @@
 import Foundation
 
-// MARK: - a-z -
+// MARK: - Helpers
+
+private extension String {
+    func obf(_ char: Character) -> String { self + String(char) }
+}
+
+private extension NSMutableString {
+    @discardableResult
+    func obf(_ char: Character) -> NSMutableString {
+        append(String(char))
+        return self
+    }
+}
+
+// MARK: - a–z
+
 public extension String {
-    var _a: String { return self + "a" }
-    var _b: String { return self + "b" }
-    var _c: String { return self + "c" }
-    var _d: String { return self + "d" }
-    var _e: String { return self + "e" }
-    var _f: String { return self + "f" }
-    var _g: String { return self + "g" }
-    var _h: String { return self + "h" }
-    var _i: String { return self + "i" }
-    var _j: String { return self + "j" }
-    var _k: String { return self + "k" }
-    var _l: String { return self + "l" }
-    var _m: String { return self + "m" }
-    var _n: String { return self + "n" }
-    var _o: String { return self + "o" }
-    var _p: String { return self + "p" }
-    var _q: String { return self + "q" }
-    var _r: String { return self + "r" }
-    var _s: String { return self + "s" }
-    var _t: String { return self + "t" }
-    var _u: String { return self + "u" }
-    var _v: String { return self + "v" }
-    var _w: String { return self + "w" }
-    var _x: String { return self + "x" }
-    var _y: String { return self + "y" }
-    var _z: String { return self + "z" }
+    var _a: String { obf("a") }
+    var _b: String { obf("b") }
+    var _c: String { obf("c") }
+    var _d: String { obf("d") }
+    var _e: String { obf("e") }
+    var _f: String { obf("f") }
+    var _g: String { obf("g") }
+    var _h: String { obf("h") }
+    var _i: String { obf("i") }
+    var _j: String { obf("j") }
+    var _k: String { obf("k") }
+    var _l: String { obf("l") }
+    var _m: String { obf("m") }
+    var _n: String { obf("n") }
+    var _o: String { obf("o") }
+    var _p: String { obf("p") }
+    var _q: String { obf("q") }
+    var _r: String { obf("r") }
+    var _s: String { obf("s") }
+    var _t: String { obf("t") }
+    var _u: String { obf("u") }
+    var _v: String { obf("v") }
+    var _w: String { obf("w") }
+    var _x: String { obf("x") }
+    var _y: String { obf("y") }
+    var _z: String { obf("z") }
 }
 
 @objc public extension NSMutableString {
-    var _a: NSMutableString { append("a"); return self }
-    var _b: NSMutableString { append("b"); return self }
-    var _c: NSMutableString { append("c"); return self }
-    var _d: NSMutableString { append("d"); return self }
-    var _e: NSMutableString { append("e"); return self }
-    var _f: NSMutableString { append("f"); return self }
-    var _g: NSMutableString { append("g"); return self }
-    var _h: NSMutableString { append("h"); return self }
-    var _i: NSMutableString { append("i"); return self }
-    var _j: NSMutableString { append("j"); return self }
-    var _k: NSMutableString { append("k"); return self }
-    var _l: NSMutableString { append("l"); return self }
-    var _m: NSMutableString { append("m"); return self }
-    var _n: NSMutableString { append("n"); return self }
-    var _o: NSMutableString { append("o"); return self }
-    var _p: NSMutableString { append("p"); return self }
-    var _q: NSMutableString { append("q"); return self }
-    var _r: NSMutableString { append("r"); return self }
-    var _s: NSMutableString { append("s"); return self }
-    var _t: NSMutableString { append("t"); return self }
-    var _u: NSMutableString { append("u"); return self }
-    var _v: NSMutableString { append("v"); return self }
-    var _w: NSMutableString { append("w"); return self }
-    var _x: NSMutableString { append("x"); return self }
-    var _y: NSMutableString { append("y"); return self }
-    var _z: NSMutableString { append("z"); return self }
+    var _a: NSMutableString { obf("a") }
+    var _b: NSMutableString { obf("b") }
+    var _c: NSMutableString { obf("c") }
+    var _d: NSMutableString { obf("d") }
+    var _e: NSMutableString { obf("e") }
+    var _f: NSMutableString { obf("f") }
+    var _g: NSMutableString { obf("g") }
+    var _h: NSMutableString { obf("h") }
+    var _i: NSMutableString { obf("i") }
+    var _j: NSMutableString { obf("j") }
+    var _k: NSMutableString { obf("k") }
+    var _l: NSMutableString { obf("l") }
+    var _m: NSMutableString { obf("m") }
+    var _n: NSMutableString { obf("n") }
+    var _o: NSMutableString { obf("o") }
+    var _p: NSMutableString { obf("p") }
+    var _q: NSMutableString { obf("q") }
+    var _r: NSMutableString { obf("r") }
+    var _s: NSMutableString { obf("s") }
+    var _t: NSMutableString { obf("t") }
+    var _u: NSMutableString { obf("u") }
+    var _v: NSMutableString { obf("v") }
+    var _w: NSMutableString { obf("w") }
+    var _x: NSMutableString { obf("x") }
+    var _y: NSMutableString { obf("y") }
+    var _z: NSMutableString { obf("z") }
 }
 
-// MARK: - A-Z -
+// MARK: - A–Z
+
 public extension String {
-    var _A: String { return self + "A" }
-    var _B: String { return self + "B" }
-    var _C: String { return self + "C" }
-    var _D: String { return self + "D" }
-    var _E: String { return self + "E" }
-    var _F: String { return self + "F" }
-    var _G: String { return self + "G" }
-    var _H: String { return self + "H" }
-    var _I: String { return self + "I" }
-    var _J: String { return self + "J" }
-    var _K: String { return self + "K" }
-    var _L: String { return self + "L" }
-    var _M: String { return self + "M" }
-    var _N: String { return self + "N" }
-    var _O: String { return self + "O" }
-    var _P: String { return self + "P" }
-    var _Q: String { return self + "Q" }
-    var _R: String { return self + "R" }
-    var _S: String { return self + "S" }
-    var _T: String { return self + "T" }
-    var _U: String { return self + "U" }
-    var _V: String { return self + "V" }
-    var _W: String { return self + "W" }
-    var _X: String { return self + "X" }
-    var _Y: String { return self + "Y" }
-    var _Z: String { return self + "Z" }
+    var _A: String { obf("A") }
+    var _B: String { obf("B") }
+    var _C: String { obf("C") }
+    var _D: String { obf("D") }
+    var _E: String { obf("E") }
+    var _F: String { obf("F") }
+    var _G: String { obf("G") }
+    var _H: String { obf("H") }
+    var _I: String { obf("I") }
+    var _J: String { obf("J") }
+    var _K: String { obf("K") }
+    var _L: String { obf("L") }
+    var _M: String { obf("M") }
+    var _N: String { obf("N") }
+    var _O: String { obf("O") }
+    var _P: String { obf("P") }
+    var _Q: String { obf("Q") }
+    var _R: String { obf("R") }
+    var _S: String { obf("S") }
+    var _T: String { obf("T") }
+    var _U: String { obf("U") }
+    var _V: String { obf("V") }
+    var _W: String { obf("W") }
+    var _X: String { obf("X") }
+    var _Y: String { obf("Y") }
+    var _Z: String { obf("Z") }
 }
 
 @objc public extension NSMutableString {
-    var _A: NSMutableString { append("A"); return self }
-    var _B: NSMutableString { append("B"); return self }
-    var _C: NSMutableString { append("C"); return self }
-    var _D: NSMutableString { append("D"); return self }
-    var _E: NSMutableString { append("E"); return self }
-    var _F: NSMutableString { append("F"); return self }
-    var _G: NSMutableString { append("G"); return self }
-    var _H: NSMutableString { append("H"); return self }
-    var _I: NSMutableString { append("I"); return self }
-    var _J: NSMutableString { append("J"); return self }
-    var _K: NSMutableString { append("K"); return self }
-    var _L: NSMutableString { append("L"); return self }
-    var _M: NSMutableString { append("M"); return self }
-    var _N: NSMutableString { append("N"); return self }
-    var _O: NSMutableString { append("O"); return self }
-    var _P: NSMutableString { append("P"); return self }
-    var _Q: NSMutableString { append("Q"); return self }
-    var _R: NSMutableString { append("R"); return self }
-    var _S: NSMutableString { append("S"); return self }
-    var _T: NSMutableString { append("T"); return self }
-    var _U: NSMutableString { append("U"); return self }
-    var _V: NSMutableString { append("V"); return self }
-    var _W: NSMutableString { append("W"); return self }
-    var _X: NSMutableString { append("X"); return self }
-    var _Y: NSMutableString { append("Y"); return self }
-    var _Z: NSMutableString { append("Z"); return self }
+    var _A: NSMutableString { obf("A") }
+    var _B: NSMutableString { obf("B") }
+    var _C: NSMutableString { obf("C") }
+    var _D: NSMutableString { obf("D") }
+    var _E: NSMutableString { obf("E") }
+    var _F: NSMutableString { obf("F") }
+    var _G: NSMutableString { obf("G") }
+    var _H: NSMutableString { obf("H") }
+    var _I: NSMutableString { obf("I") }
+    var _J: NSMutableString { obf("J") }
+    var _K: NSMutableString { obf("K") }
+    var _L: NSMutableString { obf("L") }
+    var _M: NSMutableString { obf("M") }
+    var _N: NSMutableString { obf("N") }
+    var _O: NSMutableString { obf("O") }
+    var _P: NSMutableString { obf("P") }
+    var _Q: NSMutableString { obf("Q") }
+    var _R: NSMutableString { obf("R") }
+    var _S: NSMutableString { obf("S") }
+    var _T: NSMutableString { obf("T") }
+    var _U: NSMutableString { obf("U") }
+    var _V: NSMutableString { obf("V") }
+    var _W: NSMutableString { obf("W") }
+    var _X: NSMutableString { obf("X") }
+    var _Y: NSMutableString { obf("Y") }
+    var _Z: NSMutableString { obf("Z") }
 }
 
-// MARK: - Numbers -
+// MARK: - Numbers
+
 public extension String {
-    var _1: String { return self + "1" }
-    var _2: String { return self + "2" }
-    var _3: String { return self + "3" }
-    var _4: String { return self + "4" }
-    var _5: String { return self + "5" }
-    var _6: String { return self + "6" }
-    var _7: String { return self + "7" }
-    var _8: String { return self + "8" }
-    var _9: String { return self + "9" }
-    var _0: String { return self + "0" }
+    var _0: String { obf("0") }
+    var _1: String { obf("1") }
+    var _2: String { obf("2") }
+    var _3: String { obf("3") }
+    var _4: String { obf("4") }
+    var _5: String { obf("5") }
+    var _6: String { obf("6") }
+    var _7: String { obf("7") }
+    var _8: String { obf("8") }
+    var _9: String { obf("9") }
 }
 
 @objc public extension NSMutableString {
-    var _1: NSMutableString { append("1"); return self }
-    var _2: NSMutableString { append("2"); return self }
-    var _3: NSMutableString { append("3"); return self }
-    var _4: NSMutableString { append("4"); return self }
-    var _5: NSMutableString { append("5"); return self }
-    var _6: NSMutableString { append("6"); return self }
-    var _7: NSMutableString { append("7"); return self }
-    var _8: NSMutableString { append("8"); return self }
-    var _9: NSMutableString { append("9"); return self }
-    var _0: NSMutableString { append("0"); return self }
+    var _0: NSMutableString { obf("0") }
+    var _1: NSMutableString { obf("1") }
+    var _2: NSMutableString { obf("2") }
+    var _3: NSMutableString { obf("3") }
+    var _4: NSMutableString { obf("4") }
+    var _5: NSMutableString { obf("5") }
+    var _6: NSMutableString { obf("6") }
+    var _7: NSMutableString { obf("7") }
+    var _8: NSMutableString { obf("8") }
+    var _9: NSMutableString { obf("9") }
 }
