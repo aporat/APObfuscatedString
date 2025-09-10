@@ -1,10 +1,3 @@
-//
-//  APObfuscatedString.h
-//  APObfuscatedString
-//
-//  Created by A Porat on 3/22/25.
-//
-
 #import <Foundation/Foundation.h>
 
 //! Project version number for APObfuscatedString.
