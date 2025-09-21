@@ -1,4 +1,5 @@
-// swift-tools-version:6.0
+// swift-tools-version: 6.0
+// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
@@ -19,12 +20,17 @@ let package = Package(
     dependencies: [],
     targets: [
         .target(
-            name: "APObfuscatedString"
+            name: "APObfuscatedString",
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
         ),
         .testTarget(
             name: "APObfuscatedStringTests",
-            dependencies: ["APObfuscatedString"]
+            dependencies: ["APObfuscatedString"],
+            swiftSettings: [
+                .swiftLanguageMode(.v6)
+            ]
         )
-    ],
-    swiftLanguageModes: [.v6]
+    ]
 )
