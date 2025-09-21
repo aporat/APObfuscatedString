@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Test and Upload Coverage
+    name: Test
     runs-on: macos-latest
 
     steps:
