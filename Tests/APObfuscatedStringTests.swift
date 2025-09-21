@@ -3,11 +3,10 @@ import XCTest
 
 final class APObfuscatedStringTests: XCTestCase {
 
-    // MARK: - String Tests
-
-    func testStringLowercaseAppending() {
+    func testStringAppendingCharacters() {
         let base = "test"
-        let map: [Character: (String) -> String] = [
+        let testCases: [Character: (String) -> String] = [
+            // Lowercase
             "a": { $0._a }, "b": { $0._b }, "c": { $0._c }, "d": { $0._d },
             "e": { $0._e }, "f": { $0._f }, "g": { $0._g }, "h": { $0._h },
             "i": { $0._i }, "j": { $0._j }, "k": { $0._k }, "l": { $0._l },
@@ -15,15 +14,7 @@ final class APObfuscatedStringTests: XCTestCase {
             "q": { $0._q }, "r": { $0._r }, "s": { $0._s }, "t": { $0._t },
             "u": { $0._u }, "v": { $0._v }, "w": { $0._w }, "x": { $0._x },
             "y": { $0._y }, "z": { $0._z },
-        ]
-        for (ch, fn) in map {
-            XCTAssertEqual(fn(base), base + String(ch))
-        }
-    }
-
-    func testStringUppercaseAppending() {
-        let base = "test"
-        let map: [Character: (String) -> String] = [
+            // Uppercase
             "A": { $0._A }, "B": { $0._B }, "C": { $0._C }, "D": { $0._D },
             "E": { $0._E }, "F": { $0._F }, "G": { $0._G }, "H": { $0._H },
             "I": { $0._I }, "J": { $0._J }, "K": { $0._K }, "L": { $0._L },
@@ -31,47 +22,35 @@ final class APObfuscatedStringTests: XCTestCase {
             "Q": { $0._Q }, "R": { $0._R }, "S": { $0._S }, "T": { $0._T },
             "U": { $0._U }, "V": { $0._V }, "W": { $0._W }, "X": { $0._X },
             "Y": { $0._Y }, "Z": { $0._Z },
-        ]
-        for (ch, fn) in map {
-            XCTAssertEqual(fn(base), base + String(ch))
-        }
-    }
-
-    func testStringNumberAppending() {
-        let base = "test"
-        let map: [Character: (String) -> String] = [
+            // Numbers
             "0": { $0._0 }, "1": { $0._1 }, "2": { $0._2 }, "3": { $0._3 },
             "4": { $0._4 }, "5": { $0._5 }, "6": { $0._6 }, "7": { $0._7 },
-            "8": { $0._8 }, "9": { $0._9 },
+            "8": { $0._8 }, "9": { $0._9 }
         ]
-        for (ch, fn) in map {
-            XCTAssertEqual(fn(base), base + String(ch))
+
+        for (char, function) in testCases {
+            let expected = base + String(char)
+            let result = function(base)
+            XCTAssertEqual(result, expected, "Failed for character '\(char)'")
         }
     }
 
     func testStringChaining() {
+        // Test chaining with a non-empty base
         XCTAssertEqual("test"._a._B._1, "testaB1")
+
+        // Test chaining starting from an empty base
+        XCTAssertEqual(""._H._e._l._l._o._0, "Hello0")
     }
 
-    func testStringEmptyBase() {
+    func testWithVariousBaseStrings() {
+        // Test appending to an empty string
         XCTAssertEqual(""._a, "a")
-    }
 
-    // MARK: - NSMutableString Tests
+        // Test appending to a string with special characters
+        XCTAssertEqual("hello!@#"._1, "hello!@#1")
 
-    func testNSMutableStringChaining() {
-        let base = NSMutableString(string: "test")
-        let result = base._a._B._1
-        XCTAssertEqual(result as String, "testaB1")
-    }
-
-    func testNSMutableStringEmptyBase() {
-        let base = NSMutableString(string: "")
-        XCTAssertEqual(base._a as String, "a")
-    }
-
-    func testSpecialCharacters() {
-        let base = NSMutableString(string: "hello!@#")
-        XCTAssertEqual(base._a as String, "hello!@#a")
+        // Test appending to a string that already has numbers
+        XCTAssertEqual("v1.0"._b, "v1.0b")
     }
 }

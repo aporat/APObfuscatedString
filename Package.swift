@@ -25,5 +25,6 @@ let package = Package(
             name: "APObfuscatedStringTests",
             dependencies: ["APObfuscatedString"]
         )
-    ]
+    ],
+    swiftLanguageModes: [.v6]
 )

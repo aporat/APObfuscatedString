@@ -6,14 +6,6 @@ private extension String {
     func obf(_ char: Character) -> String { self + String(char) }
 }
 
-private extension NSMutableString {
-    @discardableResult
-    func obf(_ char: Character) -> NSMutableString {
-        append(String(char))
-        return self
-    }
-}
-
 // MARK: - a–z
 
 public extension String {
@@ -43,35 +35,6 @@ public extension String {
     var _x: String { obf("x") }
     var _y: String { obf("y") }
     var _z: String { obf("z") }
-}
-
-@objc public extension NSMutableString {
-    var _a: NSMutableString { obf("a") }
-    var _b: NSMutableString { obf("b") }
-    var _c: NSMutableString { obf("c") }
-    var _d: NSMutableString { obf("d") }
-    var _e: NSMutableString { obf("e") }
-    var _f: NSMutableString { obf("f") }
-    var _g: NSMutableString { obf("g") }
-    var _h: NSMutableString { obf("h") }
-    var _i: NSMutableString { obf("i") }
-    var _j: NSMutableString { obf("j") }
-    var _k: NSMutableString { obf("k") }
-    var _l: NSMutableString { obf("l") }
-    var _m: NSMutableString { obf("m") }
-    var _n: NSMutableString { obf("n") }
-    var _o: NSMutableString { obf("o") }
-    var _p: NSMutableString { obf("p") }
-    var _q: NSMutableString { obf("q") }
-    var _r: NSMutableString { obf("r") }
-    var _s: NSMutableString { obf("s") }
-    var _t: NSMutableString { obf("t") }
-    var _u: NSMutableString { obf("u") }
-    var _v: NSMutableString { obf("v") }
-    var _w: NSMutableString { obf("w") }
-    var _x: NSMutableString { obf("x") }
-    var _y: NSMutableString { obf("y") }
-    var _z: NSMutableString { obf("z") }
 }
 
 // MARK: - A–Z
@@ -105,35 +68,6 @@ public extension String {
     var _Z: String { obf("Z") }
 }
 
-@objc public extension NSMutableString {
-    var _A: NSMutableString { obf("A") }
-    var _B: NSMutableString { obf("B") }
-    var _C: NSMutableString { obf("C") }
-    var _D: NSMutableString { obf("D") }
-    var _E: NSMutableString { obf("E") }
-    var _F: NSMutableString { obf("F") }
-    var _G: NSMutableString { obf("G") }
-    var _H: NSMutableString { obf("H") }
-    var _I: NSMutableString { obf("I") }
-    var _J: NSMutableString { obf("J") }
-    var _K: NSMutableString { obf("K") }
-    var _L: NSMutableString { obf("L") }
-    var _M: NSMutableString { obf("M") }
-    var _N: NSMutableString { obf("N") }
-    var _O: NSMutableString { obf("O") }
-    var _P: NSMutableString { obf("P") }
-    var _Q: NSMutableString { obf("Q") }
-    var _R: NSMutableString { obf("R") }
-    var _S: NSMutableString { obf("S") }
-    var _T: NSMutableString { obf("T") }
-    var _U: NSMutableString { obf("U") }
-    var _V: NSMutableString { obf("V") }
-    var _W: NSMutableString { obf("W") }
-    var _X: NSMutableString { obf("X") }
-    var _Y: NSMutableString { obf("Y") }
-    var _Z: NSMutableString { obf("Z") }
-}
-
 // MARK: - Numbers
 
 public extension String {
@@ -147,17 +81,4 @@ public extension String {
     var _7: String { obf("7") }
     var _8: String { obf("8") }
     var _9: String { obf("9") }
-}
-
-@objc public extension NSMutableString {
-    var _0: NSMutableString { obf("0") }
-    var _1: NSMutableString { obf("1") }
-    var _2: NSMutableString { obf("2") }
-    var _3: NSMutableString { obf("3") }
-    var _4: NSMutableString { obf("4") }
-    var _5: NSMutableString { obf("5") }
-    var _6: NSMutableString { obf("6") }
-    var _7: NSMutableString { obf("7") }
-    var _8: NSMutableString { obf("8") }
-    var _9: NSMutableString { obf("9") }
 }
