@@ -17,13 +17,3 @@ jobs:
 
       - name: Run tests and generate report
         run: swift test --enable-code-coverage
-
-      - name: Get Codecov report path
-        id: get_report_path
-        run: echo "report_path=$(swift test --show-codecov-path)" >> "$GITHUB_OUTPUT"
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ${{ steps.get_report_path.outputs.report_path }}
