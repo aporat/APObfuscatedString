@@ -20,9 +20,13 @@ jobs:
 
       - name: Generate LCOV report
         run: |
+          # Ask SPM for the correct path to the built products
+          TEST_BIN_PATH=$(swift build --show-bin-path)
+          
+          # Use the dynamic path to export the coverage report
           xcrun llvm-cov export -format="lcov" \
             -instr-profile=".build/debug/codecov/default.profdata" \
-            ".build/debug/APObfuscatedStringPackageTests" > coverage.lcov
+            "${TEST_BIN_PATH}/APObfuscatedStringPackageTests" > coverage.lcov
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
