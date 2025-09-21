@@ -15,21 +15,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Run tests with coverage
+      - name: Run tests and generate report
         run: swift test --enable-code-coverage
 
-      - name: Generate LCOV report
-        run: |
-          # Ask SPM for the correct path to the built products
-          TEST_BIN_PATH=$(swift build --show-bin-path)
-          
-          # Use the dynamic path to export the coverage report
-          xcrun llvm-cov export -format="lcov" \
-            -instr-profile=".build/debug/codecov/default.profdata" \
-            "${TEST_BIN_PATH}/APObfuscatedStringPackageTests" > coverage.lcov
+      - name: Get Codecov report path
+        id: get_report_path
+        run: echo "report_path=$(swift test --show-codecov-path)" >> "$GITHUB_OUTPUT"
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage.lcov
+          files: ${{ steps.get_report_path.outputs.report_path }}
