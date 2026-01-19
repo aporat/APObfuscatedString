@@ -82,3 +82,41 @@ public extension String {
     var _8: String { obf("8") }
     var _9: String { obf("9") }
 }
+
+// MARK: - Special Characters
+
+public extension String {
+    var _space: String { obf(" ") }
+    var _underscore: String { obf("_") }
+    var _dash: String { obf("-") }
+    var _dot: String { obf(".") }
+    var _comma: String { obf(",") }
+    var _colon: String { obf(":") }
+    var _semicolon: String { obf(";") }
+    var _slash: String { obf("/") }
+    var _backslash: String { obf("\\") }
+    var _at: String { obf("@") }
+    var _hash: String { obf("#") }
+    var _dollar: String { obf("$") }
+    var _percent: String { obf("%") }
+    var _ampersand: String { obf("&") }
+    var _star: String { obf("*") }
+    var _plus: String { obf("+") }
+    var _equals: String { obf("=") }
+    var _question: String { obf("?") }
+    var _exclamation: String { obf("!") }
+    var _pipe: String { obf("|") }
+    var _tilde: String { obf("~") }
+    var _backtick: String { obf("`") }
+    var _caret: String { obf("^") }
+    var _leftParen: String { obf("(") }
+    var _rightParen: String { obf(")") }
+    var _leftBracket: String { obf("[") }
+    var _rightBracket: String { obf("]") }
+    var _leftBrace: String { obf("{") }
+    var _rightBrace: String { obf("}") }
+    var _lessThan: String { obf("<") }
+    var _greaterThan: String { obf(">") }
+    var _singleQuote: String { obf("'") }
+    var _doubleQuote: String { obf("\"") }
+}
