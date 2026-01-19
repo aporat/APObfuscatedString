@@ -53,4 +53,54 @@ final class APObfuscatedStringTests: XCTestCase {
         // Test appending to a string that already has numbers
         XCTAssertEqual("v1.0"._b, "v1.0b")
     }
+
+    func testSpecialCharacters() {
+        // Test space and common punctuation
+        XCTAssertEqual(""._h._e._l._l._o._space._w._o._r._l._d, "hello world")
+        XCTAssertEqual(""._t._e._s._t._underscore._c._a._s._e, "test_case")
+        XCTAssertEqual(""._f._i._l._e._dot._t._x._t, "file.txt")
+        XCTAssertEqual(""._u._s._e._r._at._e._x._a._m._p._l._e._dot._c._o._m, "user@example.com")
+
+        // Test URL construction
+        XCTAssertEqual(""._h._t._t._p._colon._slash._slash._a._p._i._dot._c._o._m, "http://api.com")
+
+        // Test path construction
+        XCTAssertEqual(""._slash._u._s._r._slash._b._i._n, "/usr/bin")
+
+        // Test various special characters
+        XCTAssertEqual("test"._dash._1._2._3, "test-123")
+        XCTAssertEqual("price"._colon._space._dollar._9._9, "price: $99")
+        XCTAssertEqual("tag"._hash._1, "tag#1")
+
+        // Test brackets and braces
+        XCTAssertEqual("array"._leftBracket._0._rightBracket, "array[0]")
+        XCTAssertEqual("func"._leftParen._rightParen, "func()")
+        XCTAssertEqual("obj"._leftBrace._rightBrace, "obj{}")
+
+        // Test operators
+        XCTAssertEqual("x"._plus._y, "x+y")
+        XCTAssertEqual("a"._equals._b, "a=b")
+        XCTAssertEqual("x"._star._y, "x*y")
+
+        // Test comparison
+        XCTAssertEqual("x"._lessThan._y, "x<y")
+        XCTAssertEqual("x"._greaterThan._y, "x>y")
+
+        // Test quotes
+        XCTAssertEqual("name"._colon._space._doubleQuote._J._o._h._n._doubleQuote, "name: \"John\"")
+        XCTAssertEqual("it"._singleQuote._s, "it's")
+    }
+
+    func testComplexChaining() {
+        // Test building a complete URL
+        let url = ""._h._t._t._p._s._colon._slash._slash
+            ._a._p._i._dot._e._x._a._m._p._l._e._dot._c._o._m
+            ._slash._v._1._slash._u._s._e._r._s
+            ._question._i._d._equals._1._2._3
+        XCTAssertEqual(url, "https://api.example.com/v1/users?id=123")
+
+        // Test building an email
+        let email = ""._j._o._h._n._dot._d._o._e._at._c._o._m._p._a._n._y._dot._c._o._m
+        XCTAssertEqual(email, "john.doe@company.com")
+    }
 }

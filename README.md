@@ -10,7 +10,8 @@ A modern, concurrency-safe Swift package that extends `String` with fluent, chai
 ## Features
 - **Fluent `String` Extensions**: Easily append characters to `String` to create new strings in a chainable sequence.
 - **Concurrency-Safe**: Fully `Sendable` and safe for use in concurrent environments, built to work with Swift 6's strict data-race safety checks.
-- **Comprehensive Coverage**: Includes all 26 lowercase letters, 26 uppercase letters, and 10 digits.
+- **Comprehensive Coverage**: Includes all 26 lowercase letters, 26 uppercase letters, 10 digits, and 33+ special characters.
+- **Special Characters**: Support for common special characters including space, punctuation, operators, brackets, and more.
 - **Swift Package Manager**: Easy integration into your Swift projects.
 
 ## Requirements
