@@ -89,6 +89,13 @@ final class APObfuscatedStringTests: XCTestCase {
         // Test quotes
         XCTAssertEqual("name"._colon._space._doubleQuote._J._o._h._n._doubleQuote, "name: \"John\"")
         XCTAssertEqual("it"._singleQuote._s, "it's")
+
+        // Test miscellaneous punctuation and symbols
+        XCTAssertEqual("wow"._exclamation, "wow!")
+        XCTAssertEqual("a"._pipe._b, "a|b")
+        XCTAssertEqual("approx"._space._tilde._1._0, "approx ~10")
+        XCTAssertEqual(""._backtick._c._o._d._e._backtick, "`code`")
+        XCTAssertEqual("2"._caret._3, "2^3")
     }
 
     func testComplexChaining() {
