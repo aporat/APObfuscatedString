@@ -110,4 +110,179 @@ final class APObfuscatedStringTests: XCTestCase {
         let email = ""._j._o._h._n._dot._d._o._e._at._c._o._m._p._a._n._y._dot._c._o._m
         XCTAssertEqual(email, "john.doe@company.com")
     }
+
+    // MARK: - Full Special Character Coverage
+
+    func testAllSpecialCharacterProperties() {
+        let base = "x"
+        let cases: [(String, Character)] = [
+            (base._space, " "), (base._underscore, "_"), (base._dash, "-"),
+            (base._dot, "."), (base._comma, ","), (base._colon, ":"),
+            (base._semicolon, ";"), (base._slash, "/"), (base._backslash, "\\"),
+            (base._at, "@"), (base._hash, "#"), (base._dollar, "$"),
+            (base._percent, "%"), (base._ampersand, "&"), (base._star, "*"),
+            (base._plus, "+"), (base._equals, "="), (base._question, "?"),
+            (base._exclamation, "!"), (base._pipe, "|"), (base._tilde, "~"),
+            (base._backtick, "`"), (base._caret, "^"), (base._leftParen, "("),
+            (base._rightParen, ")"), (base._leftBracket, "["),
+            (base._rightBracket, "]"), (base._leftBrace, "{"),
+            (base._rightBrace, "}"), (base._lessThan, "<"),
+            (base._greaterThan, ">"), (base._singleQuote, "'"),
+            (base._doubleQuote, "\"")
+        ]
+        for (result, character) in cases {
+            XCTAssertEqual(result, base + String(character),
+                           "Failed for special character '\(character)'")
+        }
+    }
+
+    func testUnicodeBasePreserved() {
+        // Appending ASCII to a string with multi-byte/emoji content is safe.
+        XCTAssertEqual("café"._s, "cafés")
+        XCTAssertEqual("🚀"._1, "🚀1")
+        XCTAssertEqual("naïve"._dot, "naïve.")
+    }
+
+    func testChainingIsPurelyAdditive() {
+        // Each property appends exactly one character and never mutates elsewhere.
+        let start = "abc"
+        let result = start._d._e._f
+        XCTAssertEqual(result, "abcdef")
+        XCTAssertEqual(start, "abc", "The original value must be unchanged")
+    }
+}
+
+// MARK: - APStringObfuscation Tests
+
+final class APStringObfuscationTests: XCTestCase {
+
+    func testRepeatingKeyRoundTrip() {
+        let secret = "sk_live_abc123"
+        let key: [UInt8] = [0x2A, 0x7F, 0x10, 0x5C]
+        let obfuscated = APStringObfuscation.obfuscate(secret, key: key)
+        XCTAssertEqual(APStringObfuscation.deobfuscate(obfuscated, key: key), secret)
+    }
+
+    func testObfuscatedBytesDifferFromPlaintext() {
+        let secret = "password"
+        let key: [UInt8] = [0x13]
+        let obfuscated = APStringObfuscation.obfuscate(secret, key: key)
+        XCTAssertNotEqual(obfuscated, Array(secret.utf8),
+                          "Obfuscated bytes must not equal the plaintext bytes")
+    }
+
+    func testWrongKeyDoesNotRecoverSecret() {
+        let secret = "hunter2"
+        let obfuscated = APStringObfuscation.obfuscate(secret, key: [0x2A])
+        XCTAssertNotEqual(APStringObfuscation.deobfuscate(obfuscated, key: [0x2B]), secret)
+    }
+
+    func testEmptyStringRoundTrip() {
+        let key: [UInt8] = [0x01, 0x02]
+        let obfuscated = APStringObfuscation.obfuscate("", key: key)
+        XCTAssertEqual(obfuscated, [])
+        XCTAssertEqual(APStringObfuscation.deobfuscate(obfuscated, key: key), "")
+    }
+
+    func testUnicodeRoundTrip() {
+        let secret = "pÿ🔐 café"
+        let key: [UInt8] = [0xAB, 0xCD, 0xEF]
+        let obfuscated = APStringObfuscation.obfuscate(secret, key: key)
+        XCTAssertEqual(APStringObfuscation.deobfuscate(obfuscated, key: key), secret)
+    }
+}
+
+// MARK: - APObfuscatedBlob Tests
+
+final class APObfuscatedBlobTests: XCTestCase {
+
+    func testBlobRoundTrip() {
+        let secret = "top-secret-value"
+        let blob = APObfuscatedBlob(secret, seed: 0xC0FFEE)
+        XCTAssertEqual(blob.value, secret)
+    }
+
+    func testBlobReconstructionFromStoredForm() {
+        // Simulates pasting the generated seed + bytes into source.
+        let original = APObfuscatedBlob("api-key-42", seed: 999)
+        let reconstructed = APObfuscatedBlob(seed: original.seed, bytes: original.bytes)
+        XCTAssertEqual(reconstructed.value, "api-key-42")
+    }
+
+    func testBlobBytesHidePlaintext() {
+        let secret = "visible?"
+        let blob = APObfuscatedBlob(secret, seed: 7)
+        XCTAssertNotEqual(blob.bytes, Array(secret.utf8))
+    }
+
+    func testDifferentSeedsProduceDifferentBytes() {
+        let a = APObfuscatedBlob("same", seed: 1)
+        let b = APObfuscatedBlob("same", seed: 2)
+        XCTAssertNotEqual(a.bytes, b.bytes)
+        XCTAssertEqual(a.value, b.value)
+    }
+
+    func testWrongSeedDoesNotRecoverSecret() {
+        let blob = APObfuscatedBlob("secret", seed: 100)
+        let wrong = APObfuscatedBlob(seed: 101, bytes: blob.bytes)
+        XCTAssertNotEqual(wrong.value, "secret")
+    }
+
+    func testZeroSeedIsCoerced() {
+        let blob = APObfuscatedBlob("x", seed: 0)
+        XCTAssertNotEqual(blob.seed, 0)
+        XCTAssertEqual(blob.value, "x")
+    }
+
+    func testRandomSeedRoundTrip() {
+        let secret = "random-seed-secret"
+        let blob = APObfuscatedBlob(secret)
+        XCTAssertEqual(blob.value, secret)
+    }
+
+    func testEmptyBlobRoundTrip() {
+        let blob = APObfuscatedBlob("", seed: 42)
+        XCTAssertEqual(blob.bytes, [])
+        XCTAssertEqual(blob.value, "")
+    }
+}
+
+// MARK: - Chain Generator Tests
+
+final class APStringChainGeneratorTests: XCTestCase {
+
+    func testGeneratesChainForLetters() {
+        XCTAssertEqual("hi".obfuscatedChainSource, "\"\"._h._i")
+    }
+
+    func testGeneratedChainCompilesLogically() {
+        // The generator output for "Hello0" matches the hand-written chain.
+        XCTAssertEqual("Hello0".obfuscatedChainSource, "\"\"._H._e._l._l._o._0")
+    }
+
+    func testGeneratesChainForSpecialCharacters() {
+        XCTAssertEqual("a.b".obfuscatedChainSource, "\"\"._a._dot._b")
+        XCTAssertEqual("x y".obfuscatedChainSource, "\"\"._x._space._y")
+    }
+
+    func testEmptyStringGeneratesEmptyBase() {
+        XCTAssertEqual("".obfuscatedChainSource, "\"\"")
+    }
+
+    func testUnsupportedCharacterReturnsNil() {
+        // Emoji has no fluent property.
+        XCTAssertNil("hi🚀".obfuscatedChainSource)
+    }
+
+    func testUnsupportedCharactersListed() {
+        XCTAssertEqual("a🚀b→c".unsupportedObfuscationCharacters, ["🚀", "→"])
+        XCTAssertTrue("plain".unsupportedObfuscationCharacters.isEmpty)
+    }
+
+    func testPropertyNameLookup() {
+        XCTAssertEqual(String.obfuscationPropertyName(for: "a"), "_a")
+        XCTAssertEqual(String.obfuscationPropertyName(for: " "), "_space")
+        XCTAssertEqual(String.obfuscationPropertyName(for: "@"), "_at")
+        XCTAssertNil(String.obfuscationPropertyName(for: "🚀"))
+    }
 }
